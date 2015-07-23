@@ -1,0 +1,280 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NOVA_ESTRUTURAModel" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+  <EntityContainer Name="MedusaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="LogSistema" EntityType="NOVA_ESTRUTURAModel.LogSistema" />
+    <EntitySet Name="Setor" EntityType="NOVA_ESTRUTURAModel.Setor" />
+    <EntitySet Name="Usuario" EntityType="NOVA_ESTRUTURAModel.Usuario" />
+    <AssociationSet Name="FK_LogSistema_Usuario" Association="NOVA_ESTRUTURAModel.FK_LogSistema_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="LogSistema" EntitySet="LogSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Setor" Association="NOVA_ESTRUTURAModel.FK_Usuario_Setor">
+      <End EntitySet="Setor" Role="Setor" />
+      <End EntitySet="Usuario" Role="Usuario" />
+    </AssociationSet>
+    <EntitySet Name="Pagina" EntityType="NOVA_ESTRUTURAModel.Pagina" />
+    <EntitySet Name="Sistema" EntityType="NOVA_ESTRUTURAModel.Sistema" />
+    <AssociationSet Name="FK_Sistema_Pagina" Association="NOVA_ESTRUTURAModel.FK_Sistema_Pagina">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="Sistema" EntitySet="Sistema" />
+    </AssociationSet>
+    <EntitySet Name="Menu" EntityType="NOVA_ESTRUTURAModel.Menu" />
+    <AssociationSet Name="FK_Menu_Sistema" Association="NOVA_ESTRUTURAModel.FK_Menu_Sistema">
+      <End Role="Sistema" EntitySet="Sistema" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <EntitySet Name="MenuPagina" EntityType="NOVA_ESTRUTURAModel.MenuPagina" />
+    <AssociationSet Name="FK_MenuPaginas_Menu" Association="NOVA_ESTRUTURAModel.FK_MenuPaginas_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuPaginas" EntitySet="MenuPagina" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuPaginas_Pagina" Association="NOVA_ESTRUTURAModel.FK_MenuPaginas_Pagina">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="MenuPaginas" EntitySet="MenuPagina" />
+    </AssociationSet>
+    <EntitySet Name="UsuarioSistema" EntityType="NOVA_ESTRUTURAModel.UsuarioSistema" />
+    <AssociationSet Name="FK_UsuarioSistema_Sistema" Association="NOVA_ESTRUTURAModel.FK_UsuarioSistema_Sistema">
+      <End Role="Sistema" EntitySet="Sistema" />
+      <End Role="UsuarioSistema" EntitySet="UsuarioSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioSistema_Usuario" Association="NOVA_ESTRUTURAModel.FK_UsuarioSistema_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioSistema" EntitySet="UsuarioSistema" />
+    </AssociationSet>
+    <EntitySet Name="Pessoa" EntityType="NOVA_ESTRUTURAModel.Pessoa" />
+    <EntitySet Name="PessoaEmails" EntityType="NOVA_ESTRUTURAModel.PessoaEmails" />
+    <AssociationSet Name="FK_PessoaEmails_Pessoa" Association="NOVA_ESTRUTURAModel.FK_PessoaEmails_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="PessoaEmails" EntitySet="PessoaEmails" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="LogSistema">
+    <Key>
+      <PropertyRef Name="id_log" />
+    </Key>
+    <Property Type="Int32" Name="id_log" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="acao" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="entidade" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ip" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="id_usuario" />
+    <Property Type="DateTime" Name="data" />
+    <Property Type="Int32" Name="id_entidade" />
+    <Property Type="String" Name="descricao" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Usuario" Relationship="NOVA_ESTRUTURAModel.FK_LogSistema_Usuario" FromRole="LogSistema" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Setor">
+    <Key>
+      <PropertyRef Name="id_setor" />
+    </Key>
+    <Property Name="id_setor" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+    <Property Name="sigla" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" Type="String" />
+    <Property Name="nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
+    <NavigationProperty Name="Usuario" Relationship="NOVA_ESTRUTURAModel.FK_Usuario_Setor" FromRole="Setor" ToRole="Usuario" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Type="Int32" Name="id_usuario" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="login" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="senha" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="ramal" Nullable="false" MaxLength="3" FixedLength="true" Unicode="false" />
+    <Property Type="Int32" Name="id_setor" Nullable="false" />
+    <Property Type="Int32" Name="nivel" Nullable="false" />
+    <Property Type="DateTime" Name="dtNascto" />
+    <Property Type="String" Name="cpf" MaxLength="11" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="LogSistema" Relationship="NOVA_ESTRUTURAModel.FK_LogSistema_Usuario" FromRole="Usuario" ToRole="LogSistema" />
+    <NavigationProperty Name="Setor" Relationship="NOVA_ESTRUTURAModel.FK_Usuario_Setor" FromRole="Usuario" ToRole="Setor" />
+    <NavigationProperty Name="UsuarioSistema" Relationship="NOVA_ESTRUTURAModel.FK_UsuarioSistema_Usuario" FromRole="Usuario" ToRole="UsuarioSistema" />
+  </EntityType>
+  <Association Name="FK_LogSistema_Usuario">
+    <End Type="NOVA_ESTRUTURAModel.Usuario" Role="Usuario" Multiplicity="0..1" />
+    <End Type="NOVA_ESTRUTURAModel.LogSistema" Role="LogSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="LogSistema">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Setor">
+    <End Type="NOVA_ESTRUTURAModel.Setor" Multiplicity="1" Role="Setor" />
+    <End Type="NOVA_ESTRUTURAModel.Usuario" Multiplicity="*" Role="Usuario" />
+    <ReferentialConstraint>
+      <Principal Role="Setor">
+        <PropertyRef Name="id_setor" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_setor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Pagina">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+    </Key>
+    <Property Type="Int32" Name="id_pagina" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="url" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Sistema" Relationship="NOVA_ESTRUTURAModel.FK_Sistema_Pagina" FromRole="Pagina" ToRole="Sistema" />
+    <NavigationProperty Name="MenuPaginas" Relationship="NOVA_ESTRUTURAModel.FK_MenuPaginas_Pagina" FromRole="Pagina" ToRole="MenuPaginas" />
+  </EntityType>
+  <EntityType Name="Sistema">
+    <Key>
+      <PropertyRef Name="id_sistema" />
+    </Key>
+    <Property Type="Int32" Name="id_sistema" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sigla" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="id_pagina" Nullable="false" />
+    <NavigationProperty Name="Pagina" Relationship="NOVA_ESTRUTURAModel.FK_Sistema_Pagina" FromRole="Sistema" ToRole="Pagina" />
+    <NavigationProperty Name="Menus" Relationship="NOVA_ESTRUTURAModel.FK_Menu_Sistema" FromRole="Sistema" ToRole="Menu" />
+    <NavigationProperty Name="UsuarioSistema" Relationship="NOVA_ESTRUTURAModel.FK_UsuarioSistema_Sistema" FromRole="Sistema" ToRole="UsuarioSistema" />
+  </EntityType>
+  <Association Name="FK_Sistema_Pagina">
+    <End Type="NOVA_ESTRUTURAModel.Pagina" Role="Pagina" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.Sistema" Role="Sistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="id_pagina" />
+      </Principal>
+      <Dependent Role="Sistema">
+        <PropertyRef Name="id_pagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="id_menu" />
+    </Key>
+    <Property Type="Int32" Name="id_menu" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nome" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="descricao" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Type="Int32" Name="id_sistema" Nullable="false" />
+    <NavigationProperty Name="Sistema" Relationship="NOVA_ESTRUTURAModel.FK_Menu_Sistema" FromRole="Menu" ToRole="Sistema" />
+    <NavigationProperty Name="MenuPaginas" Relationship="NOVA_ESTRUTURAModel.FK_MenuPaginas_Menu" FromRole="Menu" ToRole="MenuPaginas" />
+  </EntityType>
+  <Association Name="FK_Menu_Sistema">
+    <End Type="NOVA_ESTRUTURAModel.Sistema" Role="Sistema" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.Menu" Role="Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistema">
+        <PropertyRef Name="id_sistema" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="id_sistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="MenuPagina">
+    <Key>
+      <PropertyRef Name="id_menu_paginas" />
+    </Key>
+    <Property Type="Int32" Name="id_menu_paginas" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="id_menu" Nullable="false" />
+    <Property Type="Int32" Name="id_pagina" Nullable="false" />
+    <Property Type="Boolean" Name="leitura" Nullable="false" />
+    <Property Type="Boolean" Name="gravacao" Nullable="false" />
+    <NavigationProperty Name="Menu" Relationship="NOVA_ESTRUTURAModel.FK_MenuPaginas_Menu" FromRole="MenuPaginas" ToRole="Menu" />
+    <NavigationProperty Name="Pagina" Relationship="NOVA_ESTRUTURAModel.FK_MenuPaginas_Pagina" FromRole="MenuPaginas" ToRole="Pagina" />
+  </EntityType>
+  <Association Name="FK_MenuPaginas_Menu">
+    <End Type="NOVA_ESTRUTURAModel.Menu" Role="Menu" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.MenuPagina" Role="MenuPaginas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="id_menu" />
+      </Principal>
+      <Dependent Role="MenuPaginas">
+        <PropertyRef Name="id_menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuPaginas_Pagina">
+    <End Type="NOVA_ESTRUTURAModel.Pagina" Role="Pagina" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.MenuPagina" Role="MenuPaginas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="id_pagina" />
+      </Principal>
+      <Dependent Role="MenuPaginas">
+        <PropertyRef Name="id_pagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="UsuarioSistema">
+    <Key>
+      <PropertyRef Name="id_usuario_sistema" />
+    </Key>
+    <Property Type="Int32" Name="id_usuario_sistema" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="id_usuario" Nullable="false" />
+    <Property Type="Int32" Name="id_sistema" Nullable="false" />
+    <NavigationProperty Name="Sistema" Relationship="NOVA_ESTRUTURAModel.FK_UsuarioSistema_Sistema" FromRole="UsuarioSistema" ToRole="Sistema" />
+    <NavigationProperty Name="Usuario" Relationship="NOVA_ESTRUTURAModel.FK_UsuarioSistema_Usuario" FromRole="UsuarioSistema" ToRole="Usuario" />
+  </EntityType>
+  <Association Name="FK_UsuarioSistema_Sistema">
+    <End Type="NOVA_ESTRUTURAModel.Sistema" Role="Sistema" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.UsuarioSistema" Role="UsuarioSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistema">
+        <PropertyRef Name="id_sistema" />
+      </Principal>
+      <Dependent Role="UsuarioSistema">
+        <PropertyRef Name="id_sistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioSistema_Usuario">
+    <End Type="NOVA_ESTRUTURAModel.Usuario" Role="Usuario" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.UsuarioSistema" Role="UsuarioSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="UsuarioSistema">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Coordenador" BaseType="NOVA_ESTRUTURAModel.PessoaFisica">
+    <Property Type="String" Name="unidade" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="id_pessoa" />
+    </Key>
+    <Property Type="Int32" Name="id_pessoa" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="String" Name="nome" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Type="String" Name="sexo" MaxLength="1" FixedLength="true" Unicode="false" />
+    <Property Type="DateTime" Name="data_nascto" />
+    <NavigationProperty Name="PessoaEmails" Relationship="NOVA_ESTRUTURAModel.FK_PessoaEmails_Pessoa" FromRole="Pessoa" ToRole="PessoaEmails" />
+  </EntityType>
+  <EntityType Name="PessoaEmails">
+    <Key>
+      <PropertyRef Name="id_email" />
+    </Key>
+    <Property Type="Int32" Name="id_email" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Type="Int32" Name="id_pessoa" Nullable="false" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Pessoa" Relationship="NOVA_ESTRUTURAModel.FK_PessoaEmails_Pessoa" FromRole="PessoaEmails" ToRole="Pessoa" />
+  </EntityType>
+  <EntityType Name="PessoaFisica" BaseType="NOVA_ESTRUTURAModel.Pessoa">
+    <Property Type="String" Name="cpf" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <Association Name="FK_PessoaEmails_Pessoa">
+    <End Type="NOVA_ESTRUTURAModel.Pessoa" Role="Pessoa" Multiplicity="1" />
+    <End Type="NOVA_ESTRUTURAModel.PessoaEmails" Role="PessoaEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="id_pessoa" />
+      </Principal>
+      <Dependent Role="PessoaEmails">
+        <PropertyRef Name="id_pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

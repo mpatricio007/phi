@@ -1,0 +1,304 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NOVA_ESTRUTURAModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/02/edm/ssdl">
+  <EntityContainer Name="NOVA_ESTRUTURAModelStoreContainer">
+    <EntitySet Name="Coordenador" EntityType="NOVA_ESTRUTURAModel.Store.Coordenador" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="LogSistema" EntityType="NOVA_ESTRUTURAModel.Store.LogSistema" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Menu" EntityType="NOVA_ESTRUTURAModel.Store.Menu" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="MenuPaginas" EntityType="NOVA_ESTRUTURAModel.Store.MenuPaginas" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pagina" EntityType="NOVA_ESTRUTURAModel.Store.Pagina" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Pessoa" EntityType="NOVA_ESTRUTURAModel.Store.Pessoa" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoaEmails" EntityType="NOVA_ESTRUTURAModel.Store.PessoaEmails" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="PessoaFisica" EntityType="NOVA_ESTRUTURAModel.Store.PessoaFisica" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Setor" EntityType="NOVA_ESTRUTURAModel.Store.Setor" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Sistema" EntityType="NOVA_ESTRUTURAModel.Store.Sistema" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="Usuario" EntityType="NOVA_ESTRUTURAModel.Store.Usuario" store:Type="Tables" Schema="dbo" />
+    <EntitySet Name="UsuarioSistema" EntityType="NOVA_ESTRUTURAModel.Store.UsuarioSistema" store:Type="Tables" Schema="dbo" />
+    <AssociationSet Name="FK_Coordenador_PessoaFisica" Association="NOVA_ESTRUTURAModel.Store.FK_Coordenador_PessoaFisica">
+      <End Role="PessoaFisica" EntitySet="PessoaFisica" />
+      <End Role="Coordenador" EntitySet="Coordenador" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LogSistema_Usuario" Association="NOVA_ESTRUTURAModel.Store.FK_LogSistema_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="LogSistema" EntitySet="LogSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Menu_Sistema" Association="NOVA_ESTRUTURAModel.Store.FK_Menu_Sistema">
+      <End Role="Sistema" EntitySet="Sistema" />
+      <End Role="Menu" EntitySet="Menu" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuPaginas_Menu" Association="NOVA_ESTRUTURAModel.Store.FK_MenuPaginas_Menu">
+      <End Role="Menu" EntitySet="Menu" />
+      <End Role="MenuPaginas" EntitySet="MenuPaginas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MenuPaginas_Pagina" Association="NOVA_ESTRUTURAModel.Store.FK_MenuPaginas_Pagina">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="MenuPaginas" EntitySet="MenuPaginas" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PessoaEmails_Pessoa" Association="NOVA_ESTRUTURAModel.Store.FK_PessoaEmails_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="PessoaEmails" EntitySet="PessoaEmails" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PessoaFisica_Pessoa" Association="NOVA_ESTRUTURAModel.Store.FK_PessoaFisica_Pessoa">
+      <End Role="Pessoa" EntitySet="Pessoa" />
+      <End Role="PessoaFisica" EntitySet="PessoaFisica" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Sistema_Pagina" Association="NOVA_ESTRUTURAModel.Store.FK_Sistema_Pagina">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="Sistema" EntitySet="Sistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Usuario_Setor" Association="NOVA_ESTRUTURAModel.Store.FK_Usuario_Setor">
+      <End Role="Setor" EntitySet="Setor" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioSistema_Sistema" Association="NOVA_ESTRUTURAModel.Store.FK_UsuarioSistema_Sistema">
+      <End Role="Sistema" EntitySet="Sistema" />
+      <End Role="UsuarioSistema" EntitySet="UsuarioSistema" />
+    </AssociationSet>
+    <AssociationSet Name="FK_UsuarioSistema_Usuario" Association="NOVA_ESTRUTURAModel.Store.FK_UsuarioSistema_Usuario">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="UsuarioSistema" EntitySet="UsuarioSistema" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Coordenador">
+    <Key>
+      <PropertyRef Name="id_pessoa" />
+    </Key>
+    <Property Name="id_pessoa" Type="int" Nullable="false" />
+    <Property Name="unidade" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="LogSistema">
+    <Key>
+      <PropertyRef Name="id_log" />
+    </Key>
+    <Property Name="id_log" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="acao" Type="varchar" MaxLength="20" />
+    <Property Name="entidade" Type="varchar" MaxLength="20" />
+    <Property Name="ip" Type="varchar" MaxLength="20" />
+    <Property Name="id_usuario" Type="int" />
+    <Property Name="data" Type="datetime" />
+    <Property Name="id_entidade" Type="int" />
+    <Property Name="descricao" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Menu">
+    <Key>
+      <PropertyRef Name="id_menu" />
+    </Key>
+    <Property Name="id_menu" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="descricao" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="id_sistema" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MenuPaginas">
+    <Key>
+      <PropertyRef Name="id_menu_paginas" />
+    </Key>
+    <Property Name="id_menu_paginas" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_menu" Type="int" Nullable="false" />
+    <Property Name="id_pagina" Type="int" Nullable="false" />
+    <Property Name="leitura" Type="bit" Nullable="false" />
+    <Property Name="gravacao" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Pagina">
+    <Key>
+      <PropertyRef Name="id_pagina" />
+    </Key>
+    <Property Name="id_pagina" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="url" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Pessoa">
+    <Key>
+      <PropertyRef Name="id_pessoa" />
+    </Key>
+    <Property Name="id_pessoa" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="varchar" MaxLength="150" />
+    <Property Name="sexo" Type="char" MaxLength="1" />
+    <Property Name="data_nascto" Type="date" />
+  </EntityType>
+  <EntityType Name="PessoaEmails">
+    <Key>
+      <PropertyRef Name="id_email" />
+    </Key>
+    <Property Name="id_email" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_pessoa" Type="int" Nullable="false" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="PessoaFisica">
+    <Key>
+      <PropertyRef Name="id_pessoa" />
+    </Key>
+    <Property Name="id_pessoa" Type="int" Nullable="false" />
+    <Property Name="cpf" Type="varchar" Nullable="false" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="Setor">
+    <Key>
+      <PropertyRef Name="id_setor" />
+    </Key>
+    <Property Name="id_setor" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="sigla" Type="varchar" Nullable="false" MaxLength="10" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Sistema">
+    <Key>
+      <PropertyRef Name="id_sistema" />
+    </Key>
+    <Property Name="id_sistema" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="sigla" Type="varchar" Nullable="false" MaxLength="20" />
+    <Property Name="id_pagina" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="id_usuario" />
+    </Key>
+    <Property Name="id_usuario" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="login" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="nome" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="senha" Type="varchar" Nullable="false" MaxLength="50" />
+    <Property Name="email" Type="varchar" Nullable="false" MaxLength="100" />
+    <Property Name="ramal" Type="char" Nullable="false" MaxLength="3" />
+    <Property Name="id_setor" Type="int" Nullable="false" />
+    <Property Name="nivel" Type="int" Nullable="false" />
+    <Property Name="dtNascto" Type="date" />
+    <Property Name="cpf" Type="varchar" MaxLength="11" />
+  </EntityType>
+  <EntityType Name="UsuarioSistema">
+    <Key>
+      <PropertyRef Name="id_usuario_sistema" />
+    </Key>
+    <Property Name="id_usuario_sistema" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+    <Property Name="id_usuario" Type="int" Nullable="false" />
+    <Property Name="id_sistema" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Coordenador_PessoaFisica">
+    <End Role="PessoaFisica" Type="NOVA_ESTRUTURAModel.Store.PessoaFisica" Multiplicity="1" />
+    <End Role="Coordenador" Type="NOVA_ESTRUTURAModel.Store.Coordenador" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="PessoaFisica">
+        <PropertyRef Name="id_pessoa" />
+      </Principal>
+      <Dependent Role="Coordenador">
+        <PropertyRef Name="id_pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LogSistema_Usuario">
+    <End Role="Usuario" Type="NOVA_ESTRUTURAModel.Store.Usuario" Multiplicity="0..1" />
+    <End Role="LogSistema" Type="NOVA_ESTRUTURAModel.Store.LogSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="LogSistema">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Menu_Sistema">
+    <End Role="Sistema" Type="NOVA_ESTRUTURAModel.Store.Sistema" Multiplicity="1" />
+    <End Role="Menu" Type="NOVA_ESTRUTURAModel.Store.Menu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistema">
+        <PropertyRef Name="id_sistema" />
+      </Principal>
+      <Dependent Role="Menu">
+        <PropertyRef Name="id_sistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuPaginas_Menu">
+    <End Role="Menu" Type="NOVA_ESTRUTURAModel.Store.Menu" Multiplicity="1" />
+    <End Role="MenuPaginas" Type="NOVA_ESTRUTURAModel.Store.MenuPaginas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Menu">
+        <PropertyRef Name="id_menu" />
+      </Principal>
+      <Dependent Role="MenuPaginas">
+        <PropertyRef Name="id_menu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MenuPaginas_Pagina">
+    <End Role="Pagina" Type="NOVA_ESTRUTURAModel.Store.Pagina" Multiplicity="1" />
+    <End Role="MenuPaginas" Type="NOVA_ESTRUTURAModel.Store.MenuPaginas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="id_pagina" />
+      </Principal>
+      <Dependent Role="MenuPaginas">
+        <PropertyRef Name="id_pagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PessoaEmails_Pessoa">
+    <End Role="Pessoa" Type="NOVA_ESTRUTURAModel.Store.Pessoa" Multiplicity="1" />
+    <End Role="PessoaEmails" Type="NOVA_ESTRUTURAModel.Store.PessoaEmails" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="id_pessoa" />
+      </Principal>
+      <Dependent Role="PessoaEmails">
+        <PropertyRef Name="id_pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PessoaFisica_Pessoa">
+    <End Role="Pessoa" Type="NOVA_ESTRUTURAModel.Store.Pessoa" Multiplicity="1" />
+    <End Role="PessoaFisica" Type="NOVA_ESTRUTURAModel.Store.PessoaFisica" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Pessoa">
+        <PropertyRef Name="id_pessoa" />
+      </Principal>
+      <Dependent Role="PessoaFisica">
+        <PropertyRef Name="id_pessoa" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Sistema_Pagina">
+    <End Role="Pagina" Type="NOVA_ESTRUTURAModel.Store.Pagina" Multiplicity="1" />
+    <End Role="Sistema" Type="NOVA_ESTRUTURAModel.Store.Sistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="id_pagina" />
+      </Principal>
+      <Dependent Role="Sistema">
+        <PropertyRef Name="id_pagina" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Usuario_Setor">
+    <End Role="Setor" Type="NOVA_ESTRUTURAModel.Store.Setor" Multiplicity="1" />
+    <End Role="Usuario" Type="NOVA_ESTRUTURAModel.Store.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Setor">
+        <PropertyRef Name="id_setor" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="id_setor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioSistema_Sistema">
+    <End Role="Sistema" Type="NOVA_ESTRUTURAModel.Store.Sistema" Multiplicity="1" />
+    <End Role="UsuarioSistema" Type="NOVA_ESTRUTURAModel.Store.UsuarioSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sistema">
+        <PropertyRef Name="id_sistema" />
+      </Principal>
+      <Dependent Role="UsuarioSistema">
+        <PropertyRef Name="id_sistema" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_UsuarioSistema_Usuario">
+    <End Role="Usuario" Type="NOVA_ESTRUTURAModel.Store.Usuario" Multiplicity="1" />
+    <End Role="UsuarioSistema" Type="NOVA_ESTRUTURAModel.Store.UsuarioSistema" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="id_usuario" />
+      </Principal>
+      <Dependent Role="UsuarioSistema">
+        <PropertyRef Name="id_usuario" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

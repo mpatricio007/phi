@@ -1,0 +1,124 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2008/09/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="NOVA_ESTRUTURAModelStoreContainer" CdmEntityContainer="MedusaEntities">
+    <EntitySetMapping Name="LogSistema">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.LogSistema">
+        <MappingFragment StoreEntitySet="LogSistema">
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="id_entidade" ColumnName="id_entidade" />
+          <ScalarProperty Name="data" ColumnName="data" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="ip" ColumnName="ip" />
+          <ScalarProperty Name="entidade" ColumnName="entidade" />
+          <ScalarProperty Name="acao" ColumnName="acao" />
+          <ScalarProperty Name="id_log" ColumnName="id_log" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Setor">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.Setor">
+        <MappingFragment StoreEntitySet="Setor">
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="sigla" ColumnName="sigla" />
+          <ScalarProperty Name="id_setor" ColumnName="id_setor" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+          <ScalarProperty Name="dtNascto" ColumnName="dtNascto" />
+          <ScalarProperty Name="nivel" ColumnName="nivel" />
+          <ScalarProperty Name="id_setor" ColumnName="id_setor" />
+          <ScalarProperty Name="ramal" ColumnName="ramal" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="senha" ColumnName="senha" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="login" ColumnName="login" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagina">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.Pagina">
+        <MappingFragment StoreEntitySet="Pagina">
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="url" ColumnName="url" />
+          <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sistema">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.Sistema">
+        <MappingFragment StoreEntitySet="Sistema">
+          <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+          <ScalarProperty Name="sigla" ColumnName="sigla" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_sistema" ColumnName="id_sistema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Menu">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.Menu">
+        <MappingFragment StoreEntitySet="Menu">
+          <ScalarProperty Name="id_sistema" ColumnName="id_sistema" />
+          <ScalarProperty Name="descricao" ColumnName="descricao" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MenuPagina">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.MenuPagina">
+        <MappingFragment StoreEntitySet="MenuPaginas">
+          <ScalarProperty Name="gravacao" ColumnName="gravacao" />
+          <ScalarProperty Name="leitura" ColumnName="leitura" />
+          <ScalarProperty Name="id_pagina" ColumnName="id_pagina" />
+          <ScalarProperty Name="id_menu" ColumnName="id_menu" />
+          <ScalarProperty Name="id_menu_paginas" ColumnName="id_menu_paginas" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UsuarioSistema">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.UsuarioSistema">
+        <MappingFragment StoreEntitySet="UsuarioSistema">
+          <ScalarProperty Name="id_sistema" ColumnName="id_sistema" />
+          <ScalarProperty Name="id_usuario" ColumnName="id_usuario" />
+          <ScalarProperty Name="id_usuario_sistema" ColumnName="id_usuario_sistema" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pessoa">
+      <EntityTypeMapping TypeName="IsTypeOf(NOVA_ESTRUTURAModel.Pessoa)">
+        <MappingFragment StoreEntitySet="Pessoa">
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="data_nascto" ColumnName="data_nascto" />
+          <ScalarProperty Name="sexo" ColumnName="sexo" />
+          <ScalarProperty Name="nome" ColumnName="nome" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NOVA_ESTRUTURAModel.PessoaFisica)">
+        <MappingFragment StoreEntitySet="PessoaFisica">
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="cpf" ColumnName="cpf" />
+        </MappingFragment>
+      </EntityTypeMapping>
+      <EntityTypeMapping TypeName="IsTypeOf(NOVA_ESTRUTURAModel.Coordenador)">
+        <MappingFragment StoreEntitySet="Coordenador">
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="unidade" ColumnName="unidade" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PessoaEmails">
+      <EntityTypeMapping TypeName="NOVA_ESTRUTURAModel.PessoaEmails">
+        <MappingFragment StoreEntitySet="PessoaEmails">
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="id_pessoa" ColumnName="id_pessoa" />
+          <ScalarProperty Name="id_email" ColumnName="id_email" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

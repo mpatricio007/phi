@@ -1,0 +1,21 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Styles/Sistema.Master" AutoEventWireup="true" CodeBehind="Site.master.cs" Inherits="Medusa.Styles.Site" %>
+<%@ Register src="../Controles/Menu.ascx" tagname="Menu" tagprefix="uc1" %>
+<asp:Content ID="Content1" ContentPlaceHolderID="cphMenu" runat="server">
+   
+    <uc1:Menu ID="Menu1" runat="server" />
+   
+</asp:Content>
+
+
+<asp:Content ID="Content3" ContentPlaceHolderID="cphMain" runat="server">
+	<div class="post">
+				<h2 class="title"> <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+    </asp:ContentPlaceHolder></h2>
+				
+				<div style="clear: both;">&nbsp;</div>
+				<div class="entry">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server"></asp:ContentPlaceHolder>
+    </div>
+    </div>
+    
+</asp:Content>

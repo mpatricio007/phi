@@ -1,0 +1,174 @@
+﻿/*body*/
+body
+{
+    background-position: #FFFFFF;
+    background: #FFFFFF;
+    color: #555555;
+    scrollbar-arrow-color: #555555;
+    scrollbar-face-color: #E1E1E1;
+    scrollbar-shadow-color: #999999;
+    scrollbar-highlight-color: #DDDDDD;
+    scrollbar-3dlight-color: #FFFFFF;
+    scrollbar-darkshadow-color: #FFFFFF;
+    scrollbar-track-color: #F1F1F1;
+    margin: 0;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+}
+
+#dialogAlert, #Secoes, #dialogConfirm, #dialogYesNo
+{
+    font-size: 12px;
+}
+
+/*table*/
+table
+{
+    color: #555555;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+}
+
+/*input*/
+input
+{
+    color: #555555;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+}
+
+/*select*/
+select
+{
+    color: #555555;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+}
+
+/*textarea*/
+textarea
+{
+    color: #555555;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+}
+
+/*link*/
+.linkOver
+{
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.linkOut
+{
+    text-decoration: none;
+    cursor: default;
+}
+
+/*Button*/
+.enabledButton
+{
+    filter: alpha(opacity: 100);
+    -moz-opacity: .99;
+    cursor: pointer;
+}
+
+.disabledButton
+{
+    filter: alpha(opacity: 25);
+    -moz-opacity: .25;
+    cursor: default;
+}
+
+/*input*/
+.inputBlur
+{
+    background: #F0F4F9;
+    color: #607E9F;
+    height: 18;
+    border-left-color: #AFBECF;
+    border-left-style: solid;
+    border-left-width: 4;
+    border-top-color: #AFBECF;
+    border-top-style: solid;
+    border-top-width: 1;
+    border-right-color: #AFBECF;
+    border-right-style: solid;
+    border-right-width: 1;
+    border-bottom-color: #AFBECF;
+    border-bottom-style: solid;
+    border-bottom-width: 1;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+
+.inputFocus
+{
+    background: #8DA2BF;
+    color: #FFFFFF;
+    height: 18;
+    border-left-color: #AFBECF;
+    border-left-style: solid;
+    border-left-width: 4;
+    border-top-color: #AFBECF;
+    border-top-style: solid;
+    border-top-width: 1;
+    border-right-color: #AFBECF;
+    border-right-style: solid;
+    border-right-width: 1;
+    border-bottom-color: #AFBECF;
+    border-bottom-style: solid;
+    border-bottom-width: 1;
+    font-family: segoe ui,Arial,sans-serif;
+    font-size: 12px;
+    text-transform: uppercase;
+}
+.divLeft
+{
+    width: 300px;
+    border: 1px solid red;
+    float: left;
+}
+.divRight
+{
+    width: 300px;
+    border: 1px solid red;
+    float: right;
+}
+.button
+{
+    background-color: #3399FF;
+    border: 1px solid #000099;
+    color: #CCFFFF;
+    font-family: 'Agency FB';
+    font-size: 12pt;
+}
+.divTable
+{
+    display: table;
+}
+.divRow
+{
+    display: table-row;
+}
+.divCell
+{
+    display: table-cell;
+}
+.FormTitle
+{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+.BrowserRow1
+{
+    background-color: #CCFFFF;
+}
+.BrowserRow2
+{
+    background-color: #99CCFF;
+}
