@@ -328,6 +328,7 @@
     <Content Include="App_Themes\Tema\bt.skin" />
     <Content Include="App_Themes\Tema\grid.skin" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
     <None Include="Web.config">
       <SubType>Designer</SubType>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

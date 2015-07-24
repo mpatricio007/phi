@@ -99,17 +99,17 @@ namespace Medusa.BLL
         {
             var lstStatus = new List<StatusContrato>();
 
-            if (!ObjEF.Servicos.Any())
-            {
-                var sc = new StatusContrato()
-                {
-                    plano = "Nenhum contrato cadastrado!",
-                    status = StatusFrequencia.BLOQUEAR
-                };
+            //if (!ObjEF.Servicos.Any())
+            //{
+            //    var sc = new StatusContrato()
+            //    {
+            //        plano = "Nenhum contrato cadastrado!",
+            //        status = StatusFrequencia.BLOQUEAR
+            //    };
 
-                lstStatus.Add(sc);
-            }
-            else
+            //    lstStatus.Add(sc);
+            //}
+            //else
                 lstStatus.AddRange(ObjEF.Servicos.Where(it => it.data_termino.GetValueOrDefault() > DateTime.Now.AddMonths(-1)).
                     OrderBy(k => k.data_termino).Select(k => new StatusContrato(k)));
 

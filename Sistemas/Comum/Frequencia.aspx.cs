@@ -14,13 +14,6 @@ namespace Medusa.Sistemas.Comum
 {
     public partial class Frequencia : PageCrud<FrequenciaBLL>
     {
-        private Dictionary<StatusFrequencia, System.Drawing.Color> dicColor = new Dictionary<StatusFrequencia, System.Drawing.Color>
-        {
-            {StatusFrequencia.LIBERAR , System.Drawing.Color.Green},
-           {StatusFrequencia.AVISAR , System.Drawing.Color.Yellow},
-           {StatusFrequencia.BLOQUEAR , System.Drawing.Color.Red}
-        };
-
         protected override void Page_Load(object sender, EventArgs e)
         {
             // chave primária da tabela
