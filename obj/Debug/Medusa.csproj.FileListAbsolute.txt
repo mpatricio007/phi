@@ -89,7 +89,6 @@ C:\Sistemas\phi\bin\EntityFramework.SqlServer.dll
 C:\Sistemas\phi\bin\System.Web.Entity.dll
 C:\Sistemas\phi\bin\EntityFramework.xml
 C:\Sistemas\phi\bin\EntityFramework.SqlServer.xml
-C:\Sistemas\phi\obj\Debug\Medusa.csprojResolveAssemblyReference.cache
 C:\Sistemas\phi\obj\Debug\RdlCompile.cache
 C:\Sistemas\phi\obj\Debug\RdlCompile.compiled
 C:\Sistemas\phi\obj\Debug\Medusa.dll

@@ -458,6 +458,13 @@ namespace Medusa.Sistemas.Comum
             servicoClienteBLL.ObjEF.id_cliente = Convert.ToInt32(this.txtCodigo.Text);
             servicoClienteBLL.ObjEF.desconto_per = this.cValorDescontoPerServico.Value;
             servicoClienteBLL.ObjEF.desconto_valor = this.cValorDescServico.Value;
+            
+            var s = new ServicoBLL();
+            s.Get(servicoClienteBLL.ObjEF.id_servico);
+
+            servicoClienteBLL.ObjEF.total = s.ObjEF.valor *
+                                            (1 - servicoClienteBLL.ObjEF.desconto_per.GetValueOrDefault()/100) -
+                                            servicoClienteBLL.ObjEF.desconto_valor.GetValueOrDefault();
         }
 
         protected void btInserirServico_Click(object sender, EventArgs e)

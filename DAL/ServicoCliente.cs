@@ -30,15 +30,14 @@ namespace Medusa.DAL
 
         public DateTime? data_termino { get; set; }    
 
-        [NotMapped]
-        public decimal Total
-        {
-            get
-            {
-                return Servico.valor * (1 - desconto_per.GetValueOrDefault() / 100) - desconto_valor.GetValueOrDefault();
-            }
+        public decimal total { get; set; }
+        //{
+        //    get
+        //    {
+        //        return Servico.valor * (1 - desconto_per.GetValueOrDefault() / 100) - desconto_valor.GetValueOrDefault();
+        //    }
 
-        }
+        //}
     }
 
     public class ServicoClienteConfiguration : EntityTypeConfiguration<ServicoCliente>

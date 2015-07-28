@@ -27,8 +27,7 @@ namespace Medusa.BLL
 
             if ((!ObjEF.data_pagto.HasValue)||( ObjEF.Contrato.status ))
                 return SaveChanges();
-            else
-                return false;
+            return false;
         }
 
         public bool CancelarBaixa()
@@ -39,8 +38,7 @@ namespace Medusa.BLL
             ObjEF.num = null;
             if ((ObjEF.data_pagto.HasValue) || (ObjEF.Contrato.status))
                 return SaveChanges();
-            else
-                return false;
+            return false;
         }
 
 

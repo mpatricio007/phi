@@ -8,7 +8,7 @@
         <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
         <asp:UpdatePanel ID="UpdatePanel1" runat="server">
             <ContentTemplate>                
-            <ajaxToolkit:TabContainer ID="tabs" runat="server" ActiveTabIndex="5" 
+            <ajaxToolkit:TabContainer ID="tabs" runat="server" ActiveTabIndex="3" 
                     AutoPostBack="True" onactivetabchanged="tabs_ActiveTabChanged" 
                     Width="100%" >
                     <ajaxToolkit:TabPanel ID="tpProcurar" runat="server" HeaderText="Procurar" style="min-height:600px">
