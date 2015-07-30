@@ -30,7 +30,7 @@ namespace Medusa.DAL
 
         public DateTime? data_termino { get; set; }    
 
-        public decimal total { get; set; }
+        public decimal? total { get; set; }
         //{
         //    get
         //    {

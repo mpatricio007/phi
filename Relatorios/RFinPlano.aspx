@@ -1,5 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Styles/Site.Master" AutoEventWireup="true" CodeBehind="RFinPlano.aspx.cs" Inherits="Medusa.Relatorios.RFinPlano" %>
-<%@ Page Title="" Language="C#" MasterPageFile="~/Styles/Site.Master" AutoEventWireup="true" CodeBehind="RFinPlano.aspx.cs" Inherits="Medusa.Relatorios.RFinPlano" %>
+
 <%@ Register assembly="AjaxControlToolkit" namespace="AjaxControlToolkit" tagprefix="asp" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     Relatório Financeiro por Planos 

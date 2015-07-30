@@ -93,3 +93,4 @@ C:\Sistemas\phi\obj\Debug\RdlCompile.cache
 C:\Sistemas\phi\obj\Debug\RdlCompile.compiled
 C:\Sistemas\phi\obj\Debug\Medusa.dll
 C:\Sistemas\phi\obj\Debug\Medusa.pdb
+C:\Sistemas\phi\obj\Debug\Medusa.csprojResolveAssemblyReference.cache

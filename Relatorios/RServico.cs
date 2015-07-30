@@ -28,7 +28,7 @@ namespace Medusa.Relatorios
                 {
                     servico = g.Key.descricao,
                     qtdade = g.Count(),
-                    totalPago = g.Sum(k => k.total)
+                    totalPago = g.Sum(k => (decimal)k.total)
                 };
 
             return ds.OrderBy(k => k.servico).ToList();

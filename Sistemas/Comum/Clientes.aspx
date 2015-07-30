@@ -644,7 +644,7 @@
                             <td class="esquerdo">
                                 data término:</td>
                             <td class="direito">
-                                <cdt:cData ID="cDataServicoTermino" runat="server" ValidationGroup="servico" />
+                                <cdt:cData ID="cDataServicoTermino" runat="server" ValidationGroup="servico" EnableValidator="False" />
                             </td>
                         </tr>
                                 <tr>

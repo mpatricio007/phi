@@ -453,7 +453,7 @@ namespace Medusa.Sistemas.Comum
             servicoClienteBLL.ObjEF.id_servico_cliente = Convert.ToInt32(this.txtId_servico.Text);
             servicoClienteBLL.ObjEF.id_servico = this.cDdlServico1.Id_servico;
             servicoClienteBLL.ObjEF.data = this.cDataServico.Value.GetValueOrDefault();
-            servicoClienteBLL.ObjEF.data_termino = this.cDataServicoTermino.Value.GetValueOrDefault();
+            servicoClienteBLL.ObjEF.data_termino = this.cDataServicoTermino.Value;
             servicoClienteBLL.ObjEF.obs = this.cTextoObsServico.Text;            
             servicoClienteBLL.ObjEF.id_cliente = Convert.ToInt32(this.txtCodigo.Text);
             servicoClienteBLL.ObjEF.desconto_per = this.cValorDescontoPerServico.Value;
